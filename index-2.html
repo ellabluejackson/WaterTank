@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Are NYC Water Tanks Safe?</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Are NYC Water Tanks Safe?</h1>
+  <p class="sub">Drinking water tank inspection data — NYC Open Data · D3.js v7</p>
+</header>
+
+<div class="main">
+
+  <div id="err-box"></div>
+
+  <div class="stats">
+    <div class="stat-card"><div class="label">Inspections</div><div class="value" id="s-tot">—</div></div>
+    <div class="stat-card"><div class="label">With violations</div><div class="value" id="s-vio">—</div></div>
+    <div class="stat-card"><div class="label">Violation rate</div><div class="value" id="s-rate">—</div></div>
+    <div class="stat-card"><div class="label">Unique buildings</div><div class="value" id="s-bld">—</div></div>
+  </div>
+
+  <div class="controls">
+    <div class="boro-btns">
+      <button class="boro-btn active" data-b="All">All boroughs</button>
+      <button class="boro-btn" data-b="Manhattan">Manhattan</button>
+      <button class="boro-btn" data-b="Brooklyn">Brooklyn</button>
+      <button class="boro-btn" data-b="Queens">Queens</button>
+      <button class="boro-btn" data-b="Bronx">Bronx</button>
+      <button class="boro-btn" data-b="Staten Island">Staten Island</button>
+    </div>
+    <div class="view-toggle">
+      <button class="view-btn active" id="vd">Dot map</button>
+      <button class="view-btn" id="vh">Heatmap</button>
+    </div>
+  </div>
+
+  <div id="map-wrap">
+    <div id="loading">
+      <div class="spinner"></div>
+      <span>Loading from NYC Open Data…</span>
+      <span id="loading-detail"></span>
+    </div>
+    <svg id="map"></svg>
+    <div id="tooltip">
+      <div class="tt-title" id="tt-title"></div>
+      <div class="tt-body"  id="tt-body"></div>
+    </div>
+  </div>
+
+  <div class="legend" id="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#2d9e6b;"></div>No violation</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#c0392b;"></div>Violation issued</div>
+    <div class="legend-hint">Click a borough to zoom · Scroll to zoom · Drag to pan</div>
+  </div>
+
+</div>
+
+<footer>
+  Data: <a href="https://data.cityofnewyork.us/Health/NYC-Drinking-Water-Tank-Inspections-and-Audits-Com/rytv-g5ui" target="_blank">NYC Drinking Water Tank Inspections</a>
+  · Boundaries: <a href="https://data.cityofnewyork.us/City-Government/Borough-Boundaries/7t3b-ywvw" target="_blank">NYC Open Data</a>
+  · D3.js v7
+</footer>
+
+<script src="map.js"></script>
+</body>
+</html>
